@@ -24,8 +24,8 @@ class CountriesSpider(scrapy.Spider):
         rows = response.xpath("(//table[@class='table table-striped table-bordered table-hover table-condensed table-list'])[1]/tbody/tr")
 
         for row in rows:
-            year =  row('.//td[1]/text()').get()
-            population =  row('.//td[2]/storng/text()').get()
+            year =  row.xpath('.//td[1]/text()').get()
+            population =  row.xpath('.//td[2]/storng/text()').get()
 
             yield {
                 'year' : year,
